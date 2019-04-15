@@ -1,6 +1,23 @@
-<p>
-  pokemone {{Name.name}}
-  <input [(ngModel)]="Name.name">
 
-  
-</p>
+<div class="row">
+
+	<div class="col-4  offset-4">
+	<ul>
+		<li *ngFor="let item of Name" (click)="getType(item)">{{item.name}}</li>
+	</ul>
+		<input [(ngModel)]="type" class="form-control">
+	<ul class="list-group">
+		<li class="list-group-item"><span class="badge badge-primary">Sponsor name</span></li>
+		<li class="list-group-item" *ngFor="let hero of heros" [ngClass]="{ 'text-success' : hero==='Hulk'}" >{{hero | uppercase}}</li>
+		<li class="list-group-item" >
+			<button class="btn btn-primary" (click)="addMore()">Add More</button>
+		</li>
+		<li class="list-group-item" *ngIf="Adding">
+			<input type="text" class="form-control" [(ngModel)]="inputHero"> <br>
+			<button class="btn btn-primary" [disabled]="!inputHero" (click)="changeHero()">Add</button>
+		</li>
+	</ul>
+	</div>
+</div>
+
+
