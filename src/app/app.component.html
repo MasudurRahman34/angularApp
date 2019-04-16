@@ -26,6 +26,36 @@
     </form>
   </div>
 </nav>
+
+<div class="row">
+
+  <div class="col-4  offset-4">
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let server of servers">{{server.name}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.description}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.price}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.stock}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.discount}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.user_id}}</li>
+    
+    <li class="list-group-item">
+      <input type="text" class="form-control" [(ngModel)]="inputName" placeholder="productName"> <br>
+      <input type="text" class="form-control" [(ngModel)]="description" placeholder="description"> <br>
+      <input type="text" class="form-control" [(ngModel)]="price" placeholder="price"> <br>
+      <input type="text" class="form-control" [(ngModel)]="stock" placeholder="stock"> <br>
+      <input type="text" class="form-control" [(ngModel)]="discount" placeholder="discount"> <br>
+      <button class="btn btn-primary" (click)="inputProduct()">Add</button>
+    </li><br><br>
+    <li class="list-group-item">
+      <button class="btn btn-primary" (click)="onSave()">Save Server</button>
+    </li>
+  </ul>
+  </div>
+  </div>
+
+
+
 <router-outlet></router-outlet>
      <!-- <app-pokemone> </app-pokemone>
      <app-dc-comics></app-dc-comics> -->
