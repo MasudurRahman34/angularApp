@@ -19,6 +19,9 @@
       <li class="nav-item">
         <a class="nav-link"  routerLink="Pokemone">Pokemone Heros</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onGet()">Product</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -38,6 +41,8 @@
     <li class="list-group-item" *ngFor="let server of servers">{{server.stock}}</li>
     <li class="list-group-item" *ngFor="let server of servers">{{server.discount}}</li>
     <li class="list-group-item" *ngFor="let server of servers">{{server.user_id}}</li>
+    <li class="list-group-item" *ngFor="let data of product">{{product.name}}</li>
+    <li class="list-group-item" *ngFor="let server of servers">{{server.price}}</li>
     
     <li class="list-group-item">
       <input type="text" class="form-control" [(ngModel)]="inputName" placeholder="productName"> <br>
@@ -45,10 +50,12 @@
       <input type="text" class="form-control" [(ngModel)]="price" placeholder="price"> <br>
       <input type="text" class="form-control" [(ngModel)]="stock" placeholder="stock"> <br>
       <input type="text" class="form-control" [(ngModel)]="discount" placeholder="discount"> <br>
+
       <button class="btn btn-primary" (click)="inputProduct()">Add</button>
     </li><br><br>
     <li class="list-group-item">
       <button class="btn btn-primary" (click)="onSave()">Save Server</button>
+      
     </li>
   </ul>
   </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
 import { ServerService } from './server.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AppComponent {
       price: '15000',
       stock: '200',
       discount: '20',
-      user_id: this.generateId()
+      user_id: "105"
     }
   ];
 		inputName= null;
@@ -23,8 +24,10 @@ export class AppComponent {
 		price= null;
 		stock= null;
 		discount= null;
+		user_id=null;
 
 constructor(private serverService: ServerService) {}
+
   inputProduct(){
 		this.servers.push({
 	      name: this.inputName,
@@ -32,13 +35,20 @@ constructor(private serverService: ServerService) {}
 	      price: this.price,
 	      stock: this.stock,
 	      discount: this.discount,
-	      user_id: this.generateId()
+	      user_id: this.user_id
 	    });
 	}
-onSave() {
+	onSave() {
     this.serverService.storeServers(this.servers)
       .subscribe(
         (response) => console.log(response),
+        (error) => console.log(error)
+      );
+  }
+ onGet() {
+    this.serverService.getServers()
+      .subscribe(
+        (apiData: any[]) => console.log (apiData),
         (error) => console.log(error)
       );
   }
